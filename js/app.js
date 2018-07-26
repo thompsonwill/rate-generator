@@ -7,32 +7,37 @@ var etc = 0;
 var costSum = 0;
 
 // Business Overhead variables
-var businessRent;
-var businessInsurance;
-var businessEtc;
-var overhead;
+var businessRent = 0;
+var businessInsurance = 0;
+var businessEtc = 0;
+var overhead = 0;
 
 // Personal variables
-var rent;
-var utilities;
-var inPocket;
-var pocketOverhead;
+var rent = 0;
+var utilities = 0;
+var inPocket = 0;
+var pocketOverhead = 0;
 
 // Rates variables
-var employmentRate;
-var taxRate;
-var processingRate;
+var employmentRate = 0;
+var taxRate = 0;
+var processingRate = 0;
 
 // Calcs variables
-var income;
-var hoursWorked;
-var hourlyRate;
+var income = 0;
+var hoursWorked = 0;
+var hourlyRate = 0;
 
 $("#business-overhead-text").html("<b>Expenses: </b> $" + costSum);
+
 
 // Click event to add group members to firebase 
 $("#calculate-rate").on("click", function (event) {
     event.preventDefault();
+
+    if ($("#health-insurance").val() === "" || $("#auto-insurance").val() === "" || $("#software").val() === "" || $("#etc").val() === "" || $("#business-rent").val() === "" || $("#business-insurance").val() === "" || $("#business-etc").val() === "" || $("#rent").val() === "" || $("#utilities").val() === "" || $("#employment-rate").val() === "" || $("#tax-rate").val() === "" || $("#processing-rate").val() === "" || $("#hours-worked").val() === "") {
+        alert("Please don't forget to input a value for all inputs. If you have no cost, input 0.");
+    } else {
 
     // First Section
     healthInsurance = parseInt(document.getElementById("health-insurance").value);
@@ -77,4 +82,7 @@ $("#calculate-rate").on("click", function (event) {
     hourlyRate = incRequired / hoursWorked;
     console.log(hourlyRate);
     $("#hourly-rate").html("<b>Hourly Rate: </b> $" + hourlyRate);
+    
+
+}
 });

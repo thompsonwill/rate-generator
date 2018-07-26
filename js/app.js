@@ -26,6 +26,7 @@ var processingRate;
 // Calcs variables
 var income;
 var hoursWorked;
+var hourlyRate;
 
 $("#business-overhead-text").html("<b>Expenses: </b> $" + costSum);
 
@@ -48,8 +49,32 @@ $("#calculate-rate").on("click", function (event) {
     businessRent = parseInt(document.getElementById("business-rent").value);
     businessInsurance = parseInt(document.getElementById("business-insurance").value);
     businessEtc = parseInt(document.getElementById("business-etc").value);
-    
+
     overhead = businessRent + businessInsurance + businessEtc;
     $("#second-overhead").html("<b>Expenses: </b> $" + overhead);
 
+    // Third Section
+    rent = parseInt(document.getElementById("rent").value);
+    utilities = parseInt(document.getElementById("utilities").value);
+
+    inPocket = 3 * (rent + utilities);
+    var costAll = costSum + overhead + inPocket;
+    pocketOverhead;
+    $("#in-pocket").html("<b>In Pocket: </b> $" + inPocket);
+    $("#pocket-overhead").html("<b>In Pocket + Overhead: </b> $" + costAll);
+
+    // Fourth Section
+    employmentRate = parseInt(document.getElementById("employment-rate").value);
+    taxRate = parseInt(document.getElementById("tax-rate").value);
+    processingRate = parseInt(document.getElementById("processing-rate").value);
+
+    var incRequired = costAll / (employmentRate / 100) / (1 - (taxRate / 100)) /(1 - (processingRate / 100));
+    console.log(incRequired);
+    $("#inc-required").html("<b>Income Required: </b> $" + incRequired);
+
+    // Final Spot
+    hoursWorked = parseInt(document.getElementById("hours-worked").value);
+    hourlyRate = incRequired / hoursWorked;
+    console.log(hourlyRate);
+    $("#hourly-rate").html("<b>Hourly Rate: </b> $" + hourlyRate);
 });

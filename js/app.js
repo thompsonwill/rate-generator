@@ -36,7 +36,7 @@ $("#calculate-rate").on("click", function (event) {
     event.preventDefault();
 
     if ($("#health-insurance").val() === "" || $("#auto-insurance").val() === "" || $("#software").val() === "" || $("#etc").val() === "" || $("#business-rent").val() === "" || $("#business-insurance").val() === "" || $("#business-etc").val() === "" || $("#rent").val() === "" || $("#utilities").val() === "" || $("#employment-rate").val() === "" || $("#tax-rate").val() === "" || $("#processing-rate").val() === "" || $("#hours-worked").val() === "") {
-        alert("Please don't forget to input a value for all inputs. If you have no cost, input 0.");
+        $('#myInput').trigger('focus')
     } else {
 
     // First Section

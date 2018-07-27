@@ -4,6 +4,10 @@
   float: left;
   margin: 20px;
 }
+#nutrition { 
+  width: 1000px; 
+  margin: 0 auto; 
+}
 
 body {
   font-size: small;

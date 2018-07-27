@@ -29,14 +29,16 @@ var hoursWorked = 0;
 var hourlyRate = 0;
 
 $("#business-overhead-text").html("<b>Expenses: </b> $" + costSum);
-
+$('#exampleModalCenter').hide();
 
 // Click event to add group members to firebase 
 $("#calculate-rate").on("click", function (event) {
     event.preventDefault();
 
     if ($("#health-insurance").val() === "" || $("#auto-insurance").val() === "" || $("#software").val() === "" || $("#etc").val() === "" || $("#business-rent").val() === "" || $("#business-insurance").val() === "" || $("#business-etc").val() === "" || $("#rent").val() === "" || $("#utilities").val() === "" || $("#employment-rate").val() === "" || $("#tax-rate").val() === "" || $("#processing-rate").val() === "" || $("#hours-worked").val() === "") {
-        $('#myInput').trigger('focus')
+        //$('#myInput').trigger('focus');
+        $('#\\#myModal').modal('show');
+
     } else {
 
     // First Section
